@@ -1,8 +1,43 @@
-<h1>Hola mundito  </h1>
+<h1>Eventos</h1>
+
+<button (click)="toggleButton()">ToggleButton</button>
+
+<p>Edad {{edad}}</p>
+<h1>Propiedades</h1>
+<button (click)="aumentarEdad()">+</button>
+
+<div class="box" (scroll)="onScroll($event)">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias aut dolorum perferendis nihil consequuntur.
+        Voluptate, tenetur. Cupiditate, minima minus distinctio dicta fugiat quaerat similique, atque, natus pariatur at
+        temporibus.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam tempore repellat repudiandae ad ipsa vero
+        delectus quia reprehenderit cum, atque neque nisi vel quibusdam est minus totam voluptatibus quas perspiciatis.
+    </p>
+
+</div>
+<h1>Propiedades</h1>
+
+<button [disabled]="btnDisable">Enviar</button>
+
+<input type="text" (keyup)="cambioNombre($event)">
+<p>Este es el cambio en tiempo real: {{persona.nombre}}</p>
+
+
+<progress max="100" [value]="edad"></progress>
+
+
+<h1>Hola mundito </h1>
+
+
+
 <h2>{{"hola mundaso ".repeat(5)}}</h2>
 <p>a+b= {{3-3+2}}</p>
 
 
 <h4>Hola Soy {{nombre}} y tengo {{edad}}</h4>
 
-<iframe width="885" height="498" src="https://www.youtube.com/embed/e_5t1apHjVs" title="Prediciendo el Mundial de Qatar 2022 con Python" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<img src="{{img}}" alt="imagen" width="50%">
+
+<input type="range" name="" id="">
+<input type="text" name="" id="" value="{{nombre}}">
