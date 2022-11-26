@@ -1,3 +1,47 @@
+<h1>ngFor</h1>
+<button (click)="addName()">Agregar Nombre</button>
+<input type="text" [(ngModel)]="newName" required>
+<ul>
+    <li *ngIf="nombres.length==0">No hay nombres</li>
+    <li *ngFor="let i of nombres; index as a">
+        {{a+1}} {{i}}
+        <button (click)="deleteName(a)">Eliminar</button>
+    </li>
+</ul>
+<hr width="50%">
+
+<ul>
+
+    <li *ngFor="let a of emojis; index as i">
+        emoji {{i+1}} --> {{a}}
+    </li>
+</ul>
+
+<hr>
+<h1>ngIf</h1>
+<p>Me dejarias presumirte como mi enamorada?</p>
+<input type="text" required [(ngModel)]="respuesta" />
+
+<p *ngIf="respuesta== 'si' || respuesta == 'SI' ; else rptNegativa"> Abachito</p>
+
+<ng-template #rptNegativa>
+    <h1>Escribe bien, no te entiendo</h1>
+</ng-template>
+
+
+
+
+<hr>
+<h1>ngmodel</h1>
+<p>Nombre {{persona.nombre}}</p>
+
+<input type="text" required #nombreEntrada="ngModel" [(ngModel)]="persona.nombre" />
+<p>Valido: {{nombreEntrada.valid}}</p>
+
+<input type="number" required max="18" min="10" #EdadEntrada="ngModel" [(ngModel)]="persona.eda" />
+<p>Valido: {{EdadEntrada.valid}}</p>
+
+<hr>
 <h1>Eventos</h1>
 
 <button (click)="toggleButton()">ToggleButton</button>
@@ -15,6 +59,7 @@
     </p>
 
 </div>
+<hr>
 <h1>Propiedades</h1>
 
 <button [disabled]="btnDisable">Enviar</button>
@@ -25,7 +70,7 @@
 
 <progress max="100" [value]="edad"></progress>
 
-
+<hr>
 <h1>Hola mundito </h1>
 
 
