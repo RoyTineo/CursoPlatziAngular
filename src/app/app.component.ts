@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { producto } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,37 @@ export class AppComponent {
 
   emojis = ['😂', '🐦', '🐳', '🌮', '💚'];
 
-  nombres = ['pepito','susancita'];
+  nombres = ['pepito', 'susancita'];
 
-  newName=""
+  newName = '';
 
-
+  arregloProductos: producto[] = [
+    {
+      producto: 'Papayita',
+      precio: 4.65,
+      imagen: 'https://api.lorem.space/image/drink?',
+    },
+    {
+      producto: 'Lechesita',
+      precio: 2.3,
+      imagen: 'https://api.lorem.space/image/drink?',
+    },
+    {
+      producto: 'Almendritas',
+      precio: 10.5,
+      imagen: 'https://api.lorem.space/image/drink?',
+    },
+    {
+      producto: 'Platanito',
+      precio: 3.2,
+      imagen: 'https://api.lorem.space/image/drink?',
+    },
+    {
+      producto: 'Duraznito',
+      precio: 2.5,
+      imagen: 'https://api.lorem.space/image/drink?',
+    },
+  ];
   toggleButton() {
     this.btnDisable = !this.btnDisable;
   }
@@ -42,11 +69,11 @@ export class AppComponent {
     this.persona.nombre = element.value;
   }
 
-  addName(){
-    this.nombres.push(this.newName)
+  addName() {
+    this.nombres.push(this.newName);
   }
 
-  deleteName(index:number){
-    this.nombres.splice(index,1)
+  deleteName(index: number) {
+    this.nombres.splice(index, 1);
   }
 }

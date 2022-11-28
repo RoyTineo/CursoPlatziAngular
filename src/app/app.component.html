@@ -1,4 +1,30 @@
+<h1>ngFor</h1>}
+<input type="text" [(ngModel)]="persona.nombre">
+<div [ngSwitch]="persona.nombre">
+    <p *ngSwitchCase="'Roy'">
+        Hola Roy
+    </p>
+    <p *ngSwitchCase="'Susan'">
+        Hola Susan
+    </p>
+    <p *ngSwitchDefault>
+        Esto es el default
+    </p>
+
+</div>
+
+
+<hr>
 <h1>ngFor</h1>
+<h4>objetos</h4>
+<div *ngFor="let j of arregloProductos; index as i">
+    <p>Cacera, tenemos {{j.producto}}. LLevelo a tan solo {{j.precio}}</p>
+    <h6>Mire que rico esta¡¡</h6>
+    <img [src]="j.imagen" alt="imagen" width="10%" height="10%">
+
+</div>
+<hr>
+<h4>arreglos</h4>
 <button (click)="addName()">Agregar Nombre</button>
 <input type="text" [(ngModel)]="newName" required>
 <ul>
