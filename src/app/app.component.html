@@ -1,5 +1,95 @@
-<h1>ngFor</h1>}
-<input type="text" [(ngModel)]="persona.nombre">
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm" class="input-group">
+    <div>
+        <label for="">Nombre</label>
+        <input type="text" name="nombre" required [(ngModel)]="registro.nombre">
+        <p>Mensaje de linea-error</p>
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="email" name="email" required [(ngModel)]="registro.email">
+        <p>Mensaje de linea-error</p>
+    </div>
+    <div>
+        <label for="">password</label>
+        <input type="password" name="pass" required [(ngModel)]="registro.password">
+        <p>Mensaje de linea-error</p>
+    </div>
+
+    <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+    <button type="button">Acción</button>
+
+</form>
+
+
+<hr>
+<h1>ngClass & ngStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="persona.nombre">
+<hr class="linea-error" [ngClass]="{
+    'valid': nameInput4.valid,
+    'invalid': nameInput4.invalid
+}" />
+<p class="mensaje-error" [class.invalid]="nameInput.invalid"> El campo es requerido</p>
+
+<div class="styles">
+    <div>
+        <input type="number" [(ngModel)]="box.width">
+    </div>
+    <div>
+        <input type="number" [(ngModel)]="box.height">
+    </div>
+    <div>
+        <input type="color" [(ngModel)]="box.background">
+    </div>
+    <div>
+
+        <div [ngStyle]="{
+            'width.px': box.width,
+            'height.px': box.height,
+            'background-color': box.background,
+            'display': 'block'
+        }">asds
+
+        </div>
+    </div>
+</div>
+
+<hr>
+<h1>Class & Style</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="persona.nombre">
+<p class="mensaje-error" [class.invalid]="nameInput.invalid"> El campo es requerido</p>
+
+<label for="">Nombre</label>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="persona.nombre">
+<p [style.font-style]="nameInput2.invalid ? 'italic':'normal'">Texto texto texto</p>
+<hr />
+
+<div class="styles">
+    <div>
+        <input type="text" [(ngModel)]="widthImg">
+    </div>
+    <div>
+        <img [style.width.%]="widthImg" [src]="persona.imagen">
+    </div>
+</div>
+<hr />
+
+<h1>ngFor</h1>
+<h4>estilos de la lsita de productos</h4>
+<div class="products--grid">
+
+    <div *ngFor="let j of arregloProductos; index as i">
+        <p>Cacera, tenemos {{j.producto}}. LLevelo a tan solo {{j.precio}}</p>
+        <h6>Mire que rico esta¡¡</h6>
+        <img [src]="j.imagen" alt="imagen">
+
+    </div>
+</div>
+
+<hr>
+
+<h1>ngFor</h1>
+<input type=" text" [(ngModel)]="persona.nombre">
 <div [ngSwitch]="persona.nombre">
     <p *ngSwitchCase="'Roy'">
         Hola Roy
@@ -77,11 +167,14 @@
 <button (click)="aumentarEdad()">+</button>
 
 <div class="box" (scroll)="onScroll($event)">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias aut dolorum perferendis nihil consequuntur.
-        Voluptate, tenetur. Cupiditate, minima minus distinctio dicta fugiat quaerat similique, atque, natus pariatur at
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias aut dolorum perferendis nihil
+        consequuntur.
+        Voluptate, tenetur. Cupiditate, minima minus distinctio dicta fugiat quaerat similique, atque, natus
+        pariatur at
         temporibus.
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam tempore repellat repudiandae ad ipsa vero
-        delectus quia reprehenderit cum, atque neque nisi vel quibusdam est minus totam voluptatibus quas perspiciatis.
+        delectus quia reprehenderit cum, atque neque nisi vel quibusdam est minus totam voluptatibus quas
+        perspiciatis.
     </p>
 
 </div>
@@ -107,8 +200,9 @@
 
 <h4>Hola Soy {{nombre}} y tengo {{edad}}</h4>
 
-
-<img src="{{img}}" alt="imagen" width="50%">
+<div class="avatar">
+    <img src="{{img}}" alt="imagen">
+</div>
 
 <input type="range" name="" id="">
 <input type="text" name="" id="" value="{{nombre}}">
